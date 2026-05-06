@@ -4,10 +4,27 @@
  */
 package service;
 
+import java.util.List;
+import model.AgendamentosBean;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+import repository.AgendamentosRepository;
+
 /**
  *
  * @author mathe
  */
+@Service
 public class AgendamentosService {
     
+    @Autowired
+    private AgendamentosRepository repository;
+    
+    public void criar(AgendamentosBean agendamentos) {
+        repository.criar(agendamentos);
+    }
+    
+    public List<AgendamentosBean> lerAgendamentos() {
+        return repository.lerAgendamentos();
+    }
 }
